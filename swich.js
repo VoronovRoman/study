@@ -24,7 +24,7 @@ if (num < 49) {
 
 z= +(prompt("input a number"))
 console.log(typeof(z))
-switch (z) {
+switch (true) {
     case (z < 49):
         console.log("wrong");
         break;
