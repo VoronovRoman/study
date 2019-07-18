@@ -1,4 +1,4 @@
-//'use strict'
+'use strict'
 
 // if (2*4==0) {
 //     console.log("Working!")
@@ -60,12 +60,70 @@
 //     console.log(i)
 // }
 
-for (i=1;i<20;i++){
-    if (i%2==0 || i<8) {
-        continue;
-    }
-    else if (i>14){
-        break;
-    }
-    console.log(i)
-}
+// for (i=1;i<20;i++){
+//     if (i%2==0 || i<8) {
+//         continue;
+//     }
+//     else if (i>14){
+//         break;
+//     }
+//     console.log(i)
+// }
+
+
+//********FUNCTION**************
+// let num = 20
+// function showFirstMessage(text){
+//     alert(text);
+//     let num = 10;
+// }
+// showFirstMessage("hello");
+// console.log(num) 
+
+//FUNCTION DECLARATION
+// let calc = function(a,b){
+//     return(a+b);
+// };
+
+// let calc = (a,b) => a+b;  //ES^ func declaration
+// console.log(calc(3,4));
+// console.log(calc(3,4));
+
+
+
+// function retVar(){
+//     let num = 50;
+//     return num;
+// };
+// let anotherVar = retVar();
+// console.log(anotherVar);
+//*************************************
+
+//*********Свойства**************
+
+let str = "test";
+console.log(str.length)
+
+//METHODS
+console.log(str.toLocaleUpperCase());
+console.log(str.toLocaleLowerCase());
+
+//let twelw = "12.2"
+//console.log(Math.round(twelw));
+
+let twelw = "12.2px"
+console.log(parseInt(twelw));
+console.log(parseFloat(twelw));
+
+
+
+
+
+
+
+
+
+
+
+
+
