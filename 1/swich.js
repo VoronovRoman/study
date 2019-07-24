@@ -122,8 +122,3 @@ console.log(parseFloat(twelw));
 
 
 
-
-
-
-
-
