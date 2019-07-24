@@ -9,7 +9,7 @@ function start() {
         money = +prompt("Ваш бюджет на месяц?", "");
     }
 }
-start();
+//start();
 
 
 let appData = {
@@ -35,21 +35,27 @@ function chooseExpenses(){
         }   
     };
 }
-chooseExpenses();
+//chooseExpenses();
 
-appData.moneyPerDay = (appData.budget/30).toFixed();
-
-alert("You budget on 1 day "+ appData.moneyPerDay);
-
-if(appData.moneyPerDay<100){
-    console.log("minimal level rich");
-}else if(appData.moneyPerDay>100 && appData.moneyPerDay<2000){
-    console.log("middle level rich");
-}else if(appData.moneyPerDay>2000){
-    console.log("high level rich");
-} else {
-    console.log("Error");
+function detectDayBudget(){
+    appData.moneyPerDay = (appData.budget/30).toFixed();
+    alert("You budget on 1 day "+ appData.moneyPerDay);
 }
+//detectDayBudget();
+
+function detectRichLevel(){
+    if(appData.moneyPerDay<100){
+        console.log("minimal level rich");
+    }else if(appData.moneyPerDay>100 && appData.moneyPerDay<2000){
+        console.log("middle level rich");
+    }else if(appData.moneyPerDay>2000){
+        console.log("high level rich");
+    } else {
+        console.log("Error");
+    }
+}
+//detectRichLevel();
+
 
 function chechSavings(){
     if ((appData.saving) == true){
@@ -61,3 +67,10 @@ function chechSavings(){
     }
 }
 chechSavings();
+
+function chooseOptionalExpenses(){
+    for (let i=0; i<3; i++){
+        appData.optionalExpenses[i+1]=prompt("Input optional Expenses");
+    }
+}
+chooseOptionalExpenses();
