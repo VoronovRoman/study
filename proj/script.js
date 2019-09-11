@@ -9,7 +9,7 @@ function start() {
         money = +prompt("Ваш бюджет на месяц?", "");
     }
 }
-//start();
+start();
 
 
 let appData = {
@@ -35,7 +35,7 @@ function chooseExpenses(){
         }   
     };
 }
-//chooseExpenses();
+chooseExpenses();
 
 function detectDayBudget(){
     appData.moneyPerDay = (appData.budget/30).toFixed();
@@ -54,10 +54,10 @@ function detectRichLevel(){
         console.log("Error");
     }
 }
-//detectRichLevel();
+detectRichLevel();
 
 
-function chechSavings(){
+function checkSavings(){
     if ((appData.saving) == true){
         let save = +prompt("How much money you saving?"),
             persent = +prompt("What procent?");
@@ -66,7 +66,7 @@ function chechSavings(){
         alert("Profit from you depozit is: " + appData.monthIncome);
     }
 }
-chechSavings();
+checkSavings();
 
 function chooseOptionalExpenses(){
     for (let i=0; i<3; i++){
