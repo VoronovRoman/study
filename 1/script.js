@@ -165,21 +165,72 @@
 // console.log(john.armor );
 // //*************************************
 
+// //**************************TEST
+// function hello(){
+//     console.log("hello world!");
+// }
+// hello();
 
-function hello(){
-    console.log("hello world!");
-}
-hello();
+// function hi(){
+//     console.log("hi world!");
+// }
+// hi();
 
-function hi(){
-    console.log("hi world!");
-}
-hi();
+// let arr = [1, 15, 4, 30, 42],
+//     i=arr.sort(compareNum);
 
-let arr = [1, 15, 4, 30, 42],
-    i=arr.sort(compareNum);
+// function compareNum(a, b){
+//     return a-b;
+// }
+// console.log(arr);
 
-function compareNum(a, b){
-    return a-b;
-}
-console.log(arr);
+// //****************************** DOOOOOM!
+// let box = document.getElementById("box"),
+//     btn = document.getElementsByTagName('button'),
+//     circle = document.getElementsByClassName('circle'),
+//     heart = document.querySelectorAll(".heart"),   //".wrapper .heart"
+//     oneHeart = document.querySelector(".heart"),
+//     wrapper = document.querySelector(".wrapper");
+
+// // console.log(box)
+// // console.log(btn)
+// // console.log(btn[1])
+// // console.log(circle[2])
+// // console.log(heart)
+// // console.log(oneHeart)
+
+// box.style.backgroundColor = "#000";
+// btn[1].style.borderRadius = "100%";
+// circle[0].style.backgroundColor = "red";
+// circle[1].style.backgroundColor = "yellow";
+// circle[2].style.backgroundColor = "green";
+
+// // for (let i = 0; i<heart.length; i++){
+// //     heart[i].style.backgroundColor = "blue"
+// // };
+
+// // heart.forEach(function(item, i, heartsArr){
+// //     item.style.backgroundColor = "brown";
+// // });
+
+// let div = document.createElement("div"),
+//     text = document.createTextNode("Это просто текст"); 
+
+// div.classList.add("black");
+// // document.body.appendChild(div)
+// // wrapper.appendChild(div);
+// // div.innerHTML = "<h1>hello World!</h1>";
+// div.textContent = "hello world";
+
+// document.body.insertBefore(div, circle[0]); 
+// document.body.removeChild(circle[1]); 
+// wrapper.removeChild(heart[1]);
+
+//document.body.replaceChild(btn[1], circle[1]);
+
+// div.style.width = ("100px");
+// div.style.height = ("100px");
+// div.style.backgroundColor = ("red");
+
+// console.log(div)
+// console.log(text)
