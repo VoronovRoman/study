@@ -234,3 +234,206 @@
 
 // console.log(div)
 // console.log(text)
+
+// //****************************** DOOOOOM END!
+
+
+// //****************************** EVENTS DOM START!
+// let btn = document.getElementsByTagName("button"),
+//     wrap = document.querySelector(".wrapper"),
+//     link = document.querySelector("a");
+
+// let btnArr = document.querySelectorAll("button");
+
+// btn[0].onclick = function(){
+//     alert("You pressed the first button")
+// };
+// btn[0].onclick = function(){
+//     alert("You again pressed the first button")
+// }
+
+
+
+// btn[0].addEventListener("click", function(){
+//     alert("You pressed the first button");
+// });
+
+// btn[0].addEventListener("click", function(){
+//     alert("You again pressed the first button");
+// });
+
+// let i = 1;
+// btn[0].addEventListener("mouseenter", function(){
+//     console.log("You moused at first button " + i++ +" times");
+// });
+
+
+
+
+// btn[0].addEventListener("click", function(event){
+//     console.log(event)
+//     let target = event.target;
+//     //console.log("Event happen " +event.type+ " on element " +target);
+//     target.style.display = "none";
+// });
+
+
+
+
+
+// btn[0].addEventListener("click", function(event){
+//     console.log("Event happen " +event.type+ " on element " +event.target);
+// });
+
+// wrap.addEventListener("click", function(){
+//     console.log("Event happen " +event.type+ " on element " +event.target);
+// })
+
+// link.addEventListener("click", function(event){
+//     event.preventDefault();
+//     console.log("Event happen " +event.type+ " on element " +event.target);
+// })
+
+// btnArr.forEach(function(item){
+//     item.addEventListener("mouseleave", function(){
+//         console.log("sign out!");
+//     })
+// })
+
+// //****************************** EVENTS DOM END!
+
+
+
+// // //******************************** SOME ARRAYS METHODS REPEAT. START
+// const peopleArr = [
+//     {name: "Ivan", age: 26, budget: 45000},
+//     {name: "Roma", age: 17, budget: 5400},
+//     {name: "Dima", age: 13, budget: 6200},
+//     {name: "Igor", age: 18, budget: 19020},
+// ];
+
+// for(let i = 0; i<peopleArr.length; i++){
+//     console.log(peopleArr[i])
+// }
+// console.log("for classic loop end*********************************")
+
+
+// for(let k of peopleArr){
+//     console.log(k)
+// }
+// console.log("for of end*********************************")
+
+
+// for(let k in peopleArr){
+//     console.log(peopleArr[k])
+// }
+// console.log("for in end*********************************")
+
+
+// peopleArr.forEach(function(elem, index, arr){
+//     console.log(elem,index,arr);
+// })
+// console.log("forEach classic(ES5) end*********************************")
+
+
+// peopleArr.forEach(element =>{
+//     console.log(element)
+// })
+// console.log("for Each ES 6 end*********************************")
+
+// peopleArr.forEach(element => console.log(element))
+
+
+
+///////MAP
+// const newPeopleArr = peopleArr.map(function(elem){
+//     return elem
+// });
+// console.log(peopleArr)
+// console.log(newPeopleArr)
+
+////THE SAME. MAP
+// const newPeopleArr = peopleArr.map(elem => {
+//     return elem.name
+// });
+// console.log(newPeopleArr)
+
+
+// const newPeopleArr = peopleArr.map(elem => {
+//     return `Name: ${elem.name} - ${elem.age} years`
+// });
+// console.log(newPeopleArr)
+
+
+// const newPeopleArr = peopleArr.map(elem => `Name: ${elem.name} - ${elem.age} years`);
+// console.log(newPeopleArr)
+
+// const newPeopleArr = peopleArr.map(elem => elem.age*3);
+// console.log(newPeopleArr)
+
+
+//////////FILTER
+// const adults = peopleArr.filter(elem => {
+//     if(elem.age >= 18){
+//         return true;
+//     }
+// })
+// console.log(adults)
+
+//////////THE SAME. FILTER
+// const adults = peopleArr.filter(elem => elem.age >= 18)
+// console.log(adults)
+
+
+//////////REDUCE
+// let rez = 0
+// for(let i=0; i<peopleArr.length; i++){
+//     rez+=peopleArr[i].budget
+// }
+// console.log(rez)
+
+// let rez = peopleArr.reduce((total, elem) =>{
+//     return total + elem.budget 
+// }, 0)
+// console.log(rez)
+
+// let rez = peopleArr.reduce((total, elem) => total + elem.budget, 0)
+// console.log(rez)
+
+
+// //////////////FIND METHOD
+// const roma = peopleArr.find(elem => elem.name === "Roma")
+// console.log(roma)
+
+
+// //////////////FIND INDEX
+// const romaInd = peopleArr.findIndex(elem => elem.name === "Roma")
+// console.log(romaInd)
+
+
+
+///////////SUPER EXAMPLE TASK
+
+// const neeeewPeopleArr =  peopleArr
+//     .filter(element=>element.budget>6000)
+//     .map(elem=>{
+//         return {
+//             info: `${elem.name} (${elem.age})`,
+//             budget: elem.budget
+//         }
+//     })
+// console.log(neeeewPeopleArr)
+
+// const amount = neeeewPeopleArr
+//     .reduce((total, elem) => total + elem.budget, 0)
+// console.log(amount)
+// //******************************** SOME ARRAYS METHODS REPEAT. END
+
+
+
+
+
+
+
+
+
