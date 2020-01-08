@@ -239,11 +239,11 @@
 
 
 // //****************************** EVENTS DOM START!
-// let btn = document.getElementsByTagName("button"),
+ let btn = document.getElementsByTagName("button");
 //     wrap = document.querySelector(".wrapper"),
 //     link = document.querySelector("a");
 
-// let btnArr = document.querySelectorAll("button");
+//let btnArr = document.querySelectorAll("button");
 
 // btn[0].onclick = function(){
 //     alert("You pressed the first button")
@@ -253,6 +253,9 @@
 // }
 
 
+// btn[0].onclick = function(){
+//     alert("You pressed the first button")
+// };
 
 // btn[0].addEventListener("click", function(){
 //     alert("You pressed the first button");
@@ -269,17 +272,12 @@
 
 
 
-
 // btn[0].addEventListener("click", function(event){
 //     console.log(event)
 //     let target = event.target;
 //     //console.log("Event happen " +event.type+ " on element " +target);
 //     target.style.display = "none";
 // });
-
-
-
-
 
 // btn[0].addEventListener("click", function(event){
 //     console.log("Event happen " +event.type+ " on element " +event.target);

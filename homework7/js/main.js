@@ -1,83 +1,44 @@
 'use strict'
 
-let start = document.querySelector("#start"),
-
-    
-   
-classesWithDash = new Set();
-document.querySelectorAll('*').forEach(element => { 
-  for (const cls of element.className.split(' ').filter(name => name.includes("value"))) {
-      classesWithDash.add(cls);
-  }
-});
-
-console.log(classesWithDash)
+//get button "Начать расчет" start
+let start = document.querySelector("#start");
+console.log(start)
+//get button "Начать расчет" end    
 
 
+// get all blocks with any name start
+function getAllElemWithClassName(youClassName){
+    let mass = []
+    document.querySelectorAll("*").forEach(element => {
+        if (element.className.includes(youClassName)){
+            mass.push(element);
+            };
+        });
+    return mass;
+}
+console.log(getAllElemWithClassName("value"))
+// get all blocks with name end
 
 
-//*********************************************
-// let x = document.querySelectorAll(".result")[0].children
-// console.log(x)
-//*********************************************
+// get all elements input with class start
+let allInputs = document.getElementsByClassName("expenses-item")
+console.log(allInputs);
+console.log(allInputs[1]);
+// get all elements input with class end
+
+// get buttons with tagName start
+let conf1 = document.getElementsByTagName("button")[0],
+    conf2 = document.getElementsByTagName("button")[1],
+    calcul = document.getElementsByTagName("button")[2]
+console.log(conf1, conf2, calcul);
+// get buttons with tagName END
 
 
+let optExpensInputs = document.querySelectorAll(".optionalexpenses-item");
+console.log(optExpensInputs)
 
 
-console.log("*********************************************");
-
-
-
-
-
-let emptyArr = [];
-
-document.querySelectorAll("*").forEach(element => {
-    if (element.className.includes("value")){
-        emptyArr.push(element);
-    };
-});
-console.log(emptyArr)
-console.log(emptyArr[0])
-
-
-
-
-
-
-//*********************************************
-// var classesContain = [];
-
-// document.querySelectorAll('*').forEach(x => {
-//   var y = (x.className || '').split(/\s+/g); // use a regex to cater for multiple spaces
-//   y.forEach(className => {
-//     if (className.includes("value"))
-//       classesContain.push(className);
-//   });
-// });
-
-// console.log('Final class list: ', classesContain);
-//*********************************************
-
-
-
-
-//*********************************************
-// let arr = ["abcd-value", "dba-value", "advert"]
-
-// function findValue (s){
-//     let mass = [];
-
-//     for (let i =0; i<s.length; i++){
-//         if(s[i].indexOf("value") != -1){
-//             mass[i]=s[i];
-//         } else {
-//             continue;
-//         }
-//         return mass;
-//     };
-// };
-
-// console.log(findValue(arr));
-//*********************************************
+let anotherBlocks = document.querySelectorAll(".choose-income, #savings, n\
+#sum, #percent, .year-value, .month-value, .day-value")
+console.log(anotherBlocks)
 
