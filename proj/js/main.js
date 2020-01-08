@@ -69,10 +69,10 @@ expensesBtn.addEventListener("click", function(){
     for(let i=0; i<expensesItems.length; i++){
         let a = expensesItems[i].value,
             b = expensesItems[++i].value;
-        //Проверяем ввод
+        //check input
         if( (typeof(a))==="string" && typeof(a) != null && (typeof(b)) != null
             && a != "" && b!="" && a.length<50){
-            console.log("done"+ i)
+            //console.log("done"+ i)
             appData.expenses[a] = b;
             sum += +b            
         }else{
@@ -91,24 +91,14 @@ optionalExpensesBtn.addEventListener("click", function(){
     };
 });
 
-// console.log(expensesItems)
-// for(let i=1; i< expensesItems.length; i+=2){
-//     console.log(expensesItems[i])
-//     if(expensesItems[i].value!="")
-
-// }
-console.log(valueArr)
-
 countBtn.addEventListener("click", function(){
     if(appData.budget != undefined){
         if(valueArr[3].textContent != ""){
             appData.moneyPerDay = ((appData.budget-(+valueArr[3].textContent))/30).toFixed();
             valueArr[1].textContent = appData.moneyPerDay;
-            console.log("1 ") 
         }else{
             appData.moneyPerDay = (appData.budget/30).toFixed();
-            valueArr[1].textContent = appData.moneyPerDay;
-            console.log("2 ") 
+            valueArr[1].textContent = appData.moneyPerDay; 
         };
         if(appData.moneyPerDay<100){
             valueArr[2].textContent = "Мининмальный уровень достатка";
