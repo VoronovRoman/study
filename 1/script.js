@@ -239,7 +239,7 @@
 
 
 // //****************************** EVENTS DOM START!
- let btn = document.getElementsByTagName("button");
+//  let btn = document.getElementsByTagName("button");
 //     wrap = document.querySelector(".wrapper"),
 //     link = document.querySelector("a");
 
@@ -429,9 +429,58 @@
 
 
 
+// //******************************** SET TIMEOUT, SET INTERVAL
+// let timerId = setTimeout(sayHI, 3000);
+// clearTimeout(timerId);
+// function sayHI(){
+//     console.log("hi");
+// }
+
+// let intervalID = setInterval(sayHI, 3000)
+// clearTimeout(intervalID)
 
 
+// let timerID = setTimeout(function log(){
+//     console.log("hello");
+//     setTimeout(log, 2000);
+// });
 
+//let btn = document.querySelector(".btn"),
+//     elem = document.querySelector(".box");
 
+// function myAnim(){
+//     let pos = 0;
+//     let timerId = setInterval(frame, 10);
 
+//     function frame(){
+//         if(pos == 150){
+//             clearInterval(timerId);
+//         }else{
+//             pos++
+//             elem.style.top = pos +"px";
+//             elem.style.left = pos +"px";
+//         }
+//     }
+// };
+// btn.addEventListener("click", myAnim);
 
+// let btnBlock = document.querySelector(".btn-block"),
+//     btns = document.getElementsByTagName("button")
+
+// // btnBlock.addEventListener("click", function(event){
+// //     if(event.target && event.target.tagName == "BUTTON"){
+// //         console.log("message");
+// //     }
+// // })
+
+// // btnBlock.addEventListener("click", function(event){
+// //     if(event.target && event.target.classList.contains("first")){
+// //         console.log("message");
+// //     }
+// // })
+
+// btnBlock.addEventListener("click", function(event){
+//     if(event.target && event.target.matches("button.first")){
+//         console.log("message");
+//     }
+// });
