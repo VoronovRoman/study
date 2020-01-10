@@ -484,3 +484,46 @@
 //         console.log("message");
 //     }
 // });
+// //******************************** END ET TIMEOUT, SET INTERVAL
+
+
+
+// //********************************START PARAM WINDOW JS
+let box = document.querySelector(".box")
+
+let width = box.clientWidth,
+    height = box.clientHeight;
+
+console.log(width)
+console.log(height)
+
+let width2 = box.offsetWidth,
+    height2 = box.offsetHeight;
+
+console.log(width2)
+console.log(height2)
+
+let width3 = box.scrollWidth,
+    height3 = box.scrollHeight;
+
+console.log(width3)
+console.log(height3)
+
+let btn = document.querySelector("button");
+
+btn.addEventListener("click", function(){
+    //box.style.height = box.scrollHeight+"px";
+    box.scrollTop=0;
+}) 
+
+console.log(box.getBoundingClientRect().left);
+
+console.log(document.documentElement.clientWidth)
+console.log(document.documentElement.clientHeight)
+console.log(document.documentElement.scrollTop)
+
+
+scrollBy(0, 200);   //scrollBy(x,y) each time scroll on 200px 
+scrollto(0, 200);   //scrollTo(x,y) scroll to 0,200px coordinat
+
+// //********************************END PARAM WINDOW JS

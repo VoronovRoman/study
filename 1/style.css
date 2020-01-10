@@ -19,7 +19,7 @@
 } */
 
 /* START TIMEOUT ADN INTERVAL JS */
-.box{
+/* .box{
     width: 50px;
     height: 50px;
     background-color:blue;
@@ -40,5 +40,23 @@ button{
     height: 30px;
     min-width: 50px;
     margin: 10px;
-}
+} */
 /* END TIMEOUT ADN INTERVAL JS */
+
+
+/* START PARAM WINDOW JS */
+.box{
+    margin: 0 auto;
+    width: 400px;
+    height: 350px;
+    overflow: scroll;
+    padding: 10px;
+    margin-top: 50px;
+    box-sizing: border-box;
+
+}
+button {
+    display: block;
+    margin: 0 auto;
+}
+/* END PARAM WINDOW JS */
