@@ -489,41 +489,87 @@
 
 
 // //********************************START PARAM WINDOW JS
-let box = document.querySelector(".box")
+// let box = document.querySelector(".box")
 
-let width = box.clientWidth,
-    height = box.clientHeight;
+// let width = box.clientWidth,
+//     height = box.clientHeight;
 
-console.log(width)
-console.log(height)
+// console.log(width)
+// console.log(height)
 
-let width2 = box.offsetWidth,
-    height2 = box.offsetHeight;
+// let width2 = box.offsetWidth,
+//     height2 = box.offsetHeight;
 
-console.log(width2)
-console.log(height2)
+// console.log(width2)
+// console.log(height2)
 
-let width3 = box.scrollWidth,
-    height3 = box.scrollHeight;
+// let width3 = box.scrollWidth,
+//     height3 = box.scrollHeight;
 
-console.log(width3)
-console.log(height3)
+// console.log(width3)
+// console.log(height3)
 
-let btn = document.querySelector("button");
+// let btn = document.querySelector("button");
 
-btn.addEventListener("click", function(){
-    //box.style.height = box.scrollHeight+"px";
-    box.scrollTop=0;
-}) 
+// btn.addEventListener("click", function(){
+//     //box.style.height = box.scrollHeight+"px";
+//     box.scrollTop=0;
+// }) 
 
-console.log(box.getBoundingClientRect().left);
+// console.log(box.getBoundingClientRect().left);
 
-console.log(document.documentElement.clientWidth)
-console.log(document.documentElement.clientHeight)
-console.log(document.documentElement.scrollTop)
+// console.log(document.documentElement.clientWidth)
+// console.log(document.documentElement.clientHeight)
+// console.log(document.documentElement.scrollTop)
 
 
-scrollBy(0, 200);   //scrollBy(x,y) each time scroll on 200px 
-scrollto(0, 200);   //scrollTo(x,y) scroll to 0,200px coordinat
+// scrollBy(0, 200);   //scrollBy(x,y) each time scroll on 200px 
+// scrollto(0, 200);   //scrollTo(x,y) scroll to 0,200px coordinat
 
 // //********************************END PARAM WINDOW JS
+
+
+// //********************************START FUNC CONSTRUCTOR AND CLASSES IN JS
+
+// //ES5 START
+// function User(name, id){
+//     this.name = name;
+//     this.id = id;
+//     this.human = true;
+//     this.hello = function(){
+//         console.log("hello " + this.name)
+//     }
+// }
+// User.prototype.exit = function(name){
+//     console.log("user " + this.name+ " out")
+// }
+
+// let ivan = new User("Ivan", 1488)
+// let alex = new User("Alex", 228)
+// console.log(ivan)
+// console.log(alex)
+// ivan.exit() 
+// //ES5 END
+
+// //ES6 START
+class User {
+    constructor(name, id){
+        this.name = name;
+        this.id = id;
+        this.human = true;
+    }
+    hello(){
+        console.log(`hello ${this.name}`)
+    }
+    exit(){
+        console.log(`user ${this.name} out`)
+    }
+}
+let ivan = new User("Ivan", 1488)
+let alex = new User("Alex", 228)
+console.log(ivan)
+console.log(alex)
+ivan.exit()
+
+// //ES6 END
+// //********************************END FUNC CONSTRUCTOR AND CLASSES IN JS
