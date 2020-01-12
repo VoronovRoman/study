@@ -1,4 +1,3 @@
-"use strict"
 
 // var a = "Hello World";
 
@@ -552,24 +551,95 @@
 // //ES5 END
 
 // //ES6 START
-class User {
-    constructor(name, id){
-        this.name = name;
-        this.id = id;
-        this.human = true;
-    }
-    hello(){
-        console.log(`hello ${this.name}`)
-    }
-    exit(){
-        console.log(`user ${this.name} out`)
-    }
-}
-let ivan = new User("Ivan", 1488)
-let alex = new User("Alex", 228)
-console.log(ivan)
-console.log(alex)
-ivan.exit()
-
+// class User {
+//     constructor(name, id){
+//         this.name = name;
+//         this.id = id;
+//         this.human = true;
+//     }
+//     hello(){
+//         console.log(`hello ${this.name}`)
+//     } 
+//     exit(){
+//         console.log(`user ${this.name} out`)
+//     }
+// }
+// let ivan = new User("Ivan", 1488)
+// let alex = new User("Alex", 228)
+// console.log(ivan)
+// console.log(alex)
+// ivan.exit()
 // //ES6 END
+
+// // FUNC AND .THIS START
+
+// function showThis (a, b){
+//     console.log(this)
+//     function sum(){
+//         console.log(this)
+//         return a+b;       //return this.a+this.b;
+//     }
+//     console.log(sum())
+// }
+// showThis(4,5);
+// showThis(5,5);
+// //1) call func 
+
+
+// let obj = {
+//     a: 20,
+//     b: 15,
+//     sum: function(){
+//         console.log(this)
+//         function shout(){
+//             console.log(this)
+//         }
+//         shout();
+//     }
+// }
+// obj.sum();
+// 2) Method of obj - this => obj
+// 3) Constructor (new) - this => new object
+
+
+// let user = {
+//     name: "John"
+// };
+
+// function sayName (surname){
+//     console.log(this);
+//     console.log(this.name + surname);
+    
+// };
+// sayName();
+// console.log(sayName.call(user, "Smith"));
+// console.log(sayName.apply(user, ["Snow"]));
+
+
+
+// function count(num){
+//     return this*num;
+// }
+
+// let double = count.bind(2);
+// console.log(double(3))
+// console.log(double(10))
+
+// 4) Indication of contecst - call, apply, bind
+
+
+// let btn = document.querySelector("button")
+
+// btn.addEventListener("click", function(){
+//     console.log(this)
+//     this.style.backgroundColor = "red";
+//     function showThis(){
+//         console.log(this);
+//     }
+//     showThis();
+// });
+
+// // FUNC AND .THIS END
 // //********************************END FUNC CONSTRUCTOR AND CLASSES IN JS
+
+// //******hw

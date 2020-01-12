@@ -36,13 +36,10 @@ window.addEventListener("DOMContentLoaded", function () {
     // });
 
 
-    // // MY TABS
+    // // MY TABS. START
     let parentTabName = document.querySelector(".info-header"),
         tabName = document.querySelectorAll(".info-header-tab"),
         tabContent = document.querySelectorAll(".info-tabcontent");
-    console.log(parentTabName)
-    console.log(tabName)
-    console.log(tabContent)
 
     function hideTabContent(a) {
         for (let i = a; i < tabContent.length; i++) {
@@ -70,11 +67,42 @@ window.addEventListener("DOMContentLoaded", function () {
             }
         }
     })
-    // // MY TABS END
+    // // MY TABS. END
+
+    // // BUTTONS "MORE" IN TABS AND AFTER TIMER. START  
+    let overlay = document.querySelector(".overlay"),
+        popupClose = document.querySelector(".popup-close"),
+
+        more = document.querySelector(".more"),
+        btnsMore = document.querySelectorAll(".description .description-btn");
+
+    function showModal (){
+        overlay.style.display = "block";
+        this.classList.add("more-splash");
+        document.body.style.overflow = "hidden";   
+    };
+        
+    function closeModal (){
+        overlay.style.display = "none";
+        more.classList.remove("more-splash")
+        document.body.style.overflow = "";   
+    };
+
+    btnsMore.forEach(function(elem){
+        elem.addEventListener("click", showModal);
+    });
+    more.addEventListener("click", showModal);
+    popupClose.addEventListener("click", closeModal);
+
+    //remove modal after "esc" press
+    document.body.onkeyup = function (event) {
+        event.keyCode == 27 ? closeModal() : null;
+    }; 
+    // // BUTTONS "MORE" IN TABS AND AFTER TIMER. END
 
 
     // // TIMER START
-    let deadLine = "2020-01-10T22:20:00";
+    let deadLine = "2020-01-11T22:20:00";
 
     function getTimeFromNowToDeadLine(endtime) {
         let t = Date.parse(endtime) - Date.parse(new Date());
@@ -101,15 +129,13 @@ window.addEventListener("DOMContentLoaded", function () {
             s = timer.querySelector(".seconds"),
             timeInterval = setInterval(updateClock, 1000);
 
-        // //adding 0 berofe number
-
-
         function updateClock() {
             let t = getTimeFromNowToDeadLine(endtime);
             h.textContent = t.hours;
             m.textContent = t.minutes;
             s.textContent = t.seconds;
 
+            // //adding 0 berofe number
             (h.innerHTML.length < 2) ? (h.textContent = "0" + h.textContent) : h.textContent;
             (m.innerHTML.length < 2) ? (m.textContent = "0" + m.textContent) : m.textContent;
             (s.innerHTML.length < 2) ? (s.textContent = "0" + s.textContent) : s.textContent;
