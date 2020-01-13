@@ -642,4 +642,103 @@
 // // FUNC AND .THIS END
 // //********************************END FUNC CONSTRUCTOR AND CLASSES IN JS
 
-// //******hw
+
+
+// //*********************************** INTERPOLATION START
+let name = "Dima",
+    age = 99,
+    mail = "example@gmail.com"
+
+document.write("User " + name + " " + age + " years old. His email: " + mail)
+document.write("&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp")
+document.write(`User ${name} ${age} years old. His email: ${mail}`)
+// //*********************************** INTERPOLATION END
+
+// //*********************************** LET/VAR START
+function makeArr(){
+    var items = []
+
+    for(let i = 0; i<10; i++){
+        var item = function(){
+            console.log(i);
+        };
+        items.push(item);
+    }
+    return items;
+};
+var arr = makeArr();
+arr[1]();
+arr[3]();
+arr[7]();
+// //*********************************** LET/VAR END
+
+// //*********************************** ARROW FUNC START
+let fun = ()=>{
+    console.log(this);
+}
+//fun();
+
+let obj = {
+    number: 5,
+    sayNum: function(){
+        let say = ()=>{
+            console.log(this)
+        }
+        say();
+    }
+}
+obj.sayNum();
+// //*********************************** ARROW FUNC END
+
+
+// //*********************************** DEFAULT PREFERENCES START
+
+function calcOrDouble (number, basis = 2){  //...=2     ES6
+    //basis = basis || 2;       ES5
+
+    console.log(number*basis)
+}
+calcOrDouble(3,5)
+calcOrDouble(6)
+
+// //*********************************** DEFAULT PREFERENCES START
+
+
+// //***********************************  SOME CLASESS ES6. START
+
+class Rectangle {
+    constructor(h, w=20){
+        this.height = h;
+        this.width = w;    
+    }
+    calcArea(){
+        return this.height*this.width;
+    }
+}
+const square = new Rectangle(10,10);
+console.log(square.calcArea())
+
+const square2 = new Rectangle(20);
+console.log(square2.calcArea())
+// //***********************************  SOME CLASESS ES6. END
+
+
+// //***********************************  SPREAD/REST. START
+let video = ["youtube", "vimeo", "rutube"],
+    blogs = ["wordpress", "livejournal", "blogger"]
+    internet = [...video, ...blogs, "vk", "facebook"];
+
+    //spread add "..." before array!!!!!
+console.log(internet);
+
+function log(a,b,c){
+    console.log(a);
+    console.log(b);
+    console.log(c);
+    console.log(a+b+c)
+}
+let numbers = [2,5,7]
+
+log(numbers);
+log(...numbers);
+// //***********************************  SPREAD/REST. END
