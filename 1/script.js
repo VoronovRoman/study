@@ -644,101 +644,158 @@
 
 
 
-// //*********************************** INTERPOLATION START
-let name = "Dima",
-    age = 99,
-    mail = "example@gmail.com"
+// // //*********************************** INTERPOLATION START
+// let name = "Dima",
+//     age = 99,
+//     mail = "example@gmail.com"
 
-document.write("User " + name + " " + age + " years old. His email: " + mail)
-document.write("&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp")
-document.write(`User ${name} ${age} years old. His email: ${mail}`)
-// //*********************************** INTERPOLATION END
+// document.write("User " + name + " " + age + " years old. His email: " + mail)
+// document.write("&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp")
+// document.write(`User ${name} ${age} years old. His email: ${mail}`)
+// // //*********************************** INTERPOLATION END
 
 // //*********************************** LET/VAR START
-function makeArr(){
-    var items = []
+// function makeArr(){
+//     var items = []
 
-    for(let i = 0; i<10; i++){
-        var item = function(){
-            console.log(i);
-        };
-        items.push(item);
-    }
-    return items;
-};
-var arr = makeArr();
-arr[1]();
-arr[3]();
-arr[7]();
-// //*********************************** LET/VAR END
+//     for(let i = 0; i<10; i++){
+//         var item = function(){
+//             console.log(i);
+//         };
+//         items.push(item);
+//     }
+//     return items;
+// };
+// var arr = makeArr();
+// arr[1]();
+// arr[3]();
+// arr[7]();
+// // //*********************************** LET/VAR END
 
-// //*********************************** ARROW FUNC START
-let fun = ()=>{
-    console.log(this);
-}
+// // //*********************************** ARROW FUNC START
+// let fun = ()=>{
+//     console.log(this);
+// }
 //fun();
 
-let obj = {
-    number: 5,
-    sayNum: function(){
-        let say = ()=>{
-            console.log(this)
-        }
-        say();
-    }
-}
-obj.sayNum();
-// //*********************************** ARROW FUNC END
+// let obj = {
+//     number: 5,
+//     sayNum: function(){
+//         let say = ()=>{
+//             console.log(this)
+//         }
+//         say();
+//     }
+// }
+// obj.sayNum();
+// // //*********************************** ARROW FUNC END
 
 
-// //*********************************** DEFAULT PREFERENCES START
+// // //*********************************** DEFAULT PREFERENCES START
 
-function calcOrDouble (number, basis = 2){  //...=2     ES6
-    //basis = basis || 2;       ES5
+// function calcOrDouble (number, basis = 2){  //...=2     ES6
+//     //basis = basis || 2;       ES5
 
-    console.log(number*basis)
-}
-calcOrDouble(3,5)
-calcOrDouble(6)
+//     console.log(number*basis)
+// }
+// calcOrDouble(3,5)
+// calcOrDouble(6)
 
 // //*********************************** DEFAULT PREFERENCES START
 
 
 // //***********************************  SOME CLASESS ES6. START
 
-class Rectangle {
-    constructor(h, w=20){
-        this.height = h;
-        this.width = w;    
+// class Rectangle {
+//     constructor(h, w=20){
+//         this.height = h;
+//         this.width = w;    
+//     }
+//     calcArea(){
+//         return this.height*this.width;
+//     }
+// }
+// const square = new Rectangle(10,10);
+// console.log(square.calcArea())
+
+// const square2 = new Rectangle(20);
+// console.log(square2.calcArea())
+// // //***********************************  SOME CLASESS ES6. END
+
+
+// // //***********************************  SPREAD OPERATOR. START
+// let video = ["youtube", "vimeo", "rutube"],
+//     blogs = ["wordpress", "livejournal", "blogger"]
+//     internet = [...video, ...blogs, "vk", "facebook"];
+
+//     //spread add "..." before array!!!!!
+// console.log(internet);
+
+// function log(a,b,c){
+//     console.log(a);
+//     console.log(b);
+//     console.log(c);
+//     console.log(a+b+c)
+// }
+// let numbers = [2,5,7]
+
+// log(numbers);
+// log(...numbers);
+// // //***********************************  SPREAD OPERATOR. END
+
+
+// //***********************************  hw029. start
+
+// class Options{
+//     constructor(h, w, bg, fs=12, ta="left"){
+//         this.height = h+"px";
+//         this.width = w+"px";
+//         this.backgroundColor = bg;
+//         this.fontSize = fs+"px";
+//         this.textAlign = ta;
+//     }
+//     createDiv(){
+//         let div = document.createElement("div");
+//         document.body.appendChild(div);
+//         div.style.height = this.height;
+//         div.style.width = this.width;
+//         div.style.backgroundColor = this.backgroundColor;
+//         div.style.fontSize = this.fontSize;
+//         div.style.textAlign = this.textAlign;
+//         console.log(this);
+//     }
+    
+// };
+// let divType1 = new Options(100, 100, "red");
+// div1 = divType1.createDiv();
+
+// div2 = divType1.createDiv();
+
+// let divType2 = new Options(200, 200, "gray");
+// divType2.createDiv();
+/////////******************************************** */
+
+class Options{
+    constructor(){
+        // this.height = height;
+        // this.width = width;
+        // this.bg = bg;
+        // this.fontSize = fontSize;
+        // this.textAlign = textAlign;
+        console.log(this)
     }
-    calcArea(){
-        return this.height*this.width;
+    createDiv(text,csss){
+        let div = document.createElement("div");
+        document.body.appendChild(div);
+        div.innerHTML = text
+        div.style.cssText = csss;
     }
 }
-const square = new Rectangle(10,10);
-console.log(square.calcArea())
 
-const square2 = new Rectangle(20);
-console.log(square2.calcArea())
-// //***********************************  SOME CLASESS ES6. END
+let div = new Options;
+div.createDiv("some text", "height:100px;width:100px;background-color:\
+pink;font-size:12px;text-align:center;")
 
-
-// //***********************************  SPREAD/REST. START
-let video = ["youtube", "vimeo", "rutube"],
-    blogs = ["wordpress", "livejournal", "blogger"]
-    internet = [...video, ...blogs, "vk", "facebook"];
-
-    //spread add "..." before array!!!!!
-console.log(internet);
-
-function log(a,b,c){
-    console.log(a);
-    console.log(b);
-    console.log(c);
-    console.log(a+b+c)
-}
-let numbers = [2,5,7]
-
-log(numbers);
-log(...numbers);
-// //***********************************  SPREAD/REST. END
+let div2 = new Options;
+div2.createDiv("some text", "height:200px;width:400px;background-color:\
+blue;font-size:42px;text-align:center;")
