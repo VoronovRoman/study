@@ -744,7 +744,7 @@
 // // //***********************************  SPREAD OPERATOR. END
 
 
-// //***********************************  hw029. start
+// //**************************************************  hw029. start
 
 // class Options{
 //     constructor(h, w, bg, fs=12, ta="left"){
@@ -775,27 +775,31 @@
 // divType2.createDiv();
 /////////******************************************** */
 
-class Options{
-    constructor(){
-        // this.height = height;
-        // this.width = width;
-        // this.bg = bg;
-        // this.fontSize = fontSize;
-        // this.textAlign = textAlign;
-        console.log(this)
-    }
-    createDiv(text,csss){
-        let div = document.createElement("div");
-        document.body.appendChild(div);
-        div.innerHTML = text
-        div.style.cssText = csss;
-    }
-}
+// class Options{
+//     constructor(){
+//         // this.height = height;
+//         // this.width = width;
+//         // this.bg = bg;
+//         // this.fontSize = fontSize;
+//         // this.textAlign = textAlign;
+//         console.log(this)
+//     }
+//     createDiv(text,csss){
+//         let div = document.createElement("div");
+//         document.body.appendChild(div);
+//         div.innerHTML = text
+//         div.style.cssText = csss;
+//     }
+// }
 
-let div = new Options;
-div.createDiv("some text", "height:100px;width:100px;background-color:\
-pink;font-size:12px;text-align:center;")
+// let div = new Options;
+// div.createDiv("some text", "height:100px;width:100px;background-color:\
+// pink;font-size:12px;text-align:center;")
 
-let div2 = new Options;
-div2.createDiv("some text", "height:200px;width:400px;background-color:\
-blue;font-size:42px;text-align:center;")
+// let div2 = new Options;
+// div2.createDiv("some text", "height:200px;width:400px;background-color:\
+// blue;font-size:42px;text-align:center;")
+// //**************************************************  hw029. end
+
+
+
