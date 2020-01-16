@@ -167,9 +167,42 @@ window.addEventListener("DOMContentLoaded", function () {
 
         let request = new XMLHttpRequest();
         request.open("POST", "server.php");
-        request.setRequestHeader("Content-Type", "aplication/x-www-form-urlencoded");
 
+        //below 2 lines with settings for classic php server
+        //request.setRequestHeader("Content-Type", "aplication/x-www-form-urlencoded");
+        //request.send(formData);
+
+
+        //below lines with settings for node js server, where need send json data
+        request.setRequestHeader("Content-Type", "aplication/json; charset=utf-8");
         let formData = new FormData(form);
-        request.send(formData);
+        
+        let obj = {};
+        formData.forEach(function(value,key){
+            obj[key] = value;
+        });
+        let json = JSON.stringify(obj);
+
+        request.send(json);
+
+        //after press submit 
+        request.addEventListener("readystatechange", ()=>{
+            if(request.readyState <4){
+                statusMessage.innerHTML = message.loading;
+            }else if(request.readyState === 4 && request.status == 200){
+                // form.innerHTML = "";
+                // form.appendChild(statusMessage);
+                statusMessage.innerHTML = message.success;
+            }else{
+                statusMessage.innerHTML = message.failture;
+            }
+        })
+
+        //clear inputs after sending form data
+        for(let i=0; i<input.length; i++){
+            input[i].value = "";
+        }
+
     });
+    // // FORM END
 });
