@@ -869,36 +869,91 @@
 // // ******************************FETCH GET END
 
 // **********************FETCH POST START
-const requestURL = "https://jsonplaceholder.typicode.com/users";
-function sendRequest (method, url, body=null){
-    const headers = {
-        "Content-Type":"application/json"
-    };
-    return fetch(url, {
-        method: method,
-        body: JSON.stringify(body),
-        headers: headers 
-    }).then(response =>{
-        if(response.ok){
-            return response.json()
-        }else{
-            return response.json().then(error => {
-                const e = new Error("Something goes wrong");
-                e.data = error;
-                throw e
-            })
-        }
+// const requestURL = "https://jsonplaceholder.typicode.com/users";
+// function sendRequest (method, url, body=null){
+//     const headers = {
+//         "Content-Type":"application/json"
+//     };
+//     return fetch(url, {
+//         method: method,
+//         body: JSON.stringify(body),
+//         headers: headers 
+//     }).then(response =>{
+//         if(response.ok){
+//             return response.json()
+//         }else{
+//             return response.json().then(error => {
+//                 const e = new Error("Something goes wrong");
+//                 e.data = error;
+//                 throw e
+//             })
+//         }
         
-    })
-}
+//     })
+// }
 
-let body = {
-    name: "Viktor",
-    age: 26
-}
-sendRequest("POST", requestURL, body)
-    .then(data => console.log(data))
-    .catch(err => console.log(err))
+// let body = {
+//     name: "Viktor",
+//     age: 26
+// }
+// sendRequest("POST", requestURL, body)
+//     .then(data => console.log(data))
+//     .catch(err => console.log(err))
 // ******************************FETCH POST END
 // //********************** some practic for XMLHttpRequest and fetch. END
 
+//********************************************PROMISE START
+
+// let btn = document.querySelector("button");
+// console.log(btn)
+// btn.addEventListener("click", ()=>{
+//     alert()
+// })
+
+//CALLBACK HEEELLL ABSTRACT
+// let func1 = function(param, func2){
+//     func2(function(param, func3){
+//         func3(function(param, func4){
+//             func4(function(param, func5){
+
+//             })
+//         })
+//     })
+// }
+
+//CALLBACK HEEELLL EXAMPLE
+let drink = 0;
+function shoot(arrow, headshot, fail){
+    console.log("You make a shoot..")
+    setTimeout(function(){
+        Math.random()>.5 ? headshot({}): fail("Miss");
+    }, 3000)
+}
+function win(){
+    console.log("You win");
+    (drink == 1) ? buyBeer(): giveMoney();
+}
+function buyBeer(){
+    console.log("Here's beer for You")
+}
+function giveMoney(){
+    console.log("Take money, bro")
+}
+
+function loose(){
+    console.log("You loose")
+}
+
+shoot({}, 
+        function(mark){
+            console.log("HeadSHOT!");
+            win(mark, buyBeer, giveMoney)
+        },
+        function(miss){
+            console.error(miss);
+            loose()
+        }
+    );
+
+
+//********************************************PROMISE END

@@ -169,12 +169,12 @@ window.addEventListener("DOMContentLoaded", function () {
         request.open("POST", "server.php");
 
         //below 2 lines with settings for classic php server
-        //request.setRequestHeader("Content-Type", "aplication/x-www-form-urlencoded");
+        //request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         //request.send(formData);
 
 
         //below lines with settings for node js server, where need send json data
-        request.setRequestHeader("Content-Type", "aplication/json; charset=utf-8");
+        request.setRequestHeader("Content-Type", "application/json; charset=utf-8");
         let formData = new FormData(form);
         
         let obj = {};
