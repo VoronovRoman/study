@@ -260,5 +260,105 @@ window.addEventListener("DOMContentLoaded", function () {
     });
     // FORM PROMISES END
 
+    //SLIDER START
+    let sliderItems = document.querySelectorAll(".slider-item"),
+        prevBtn = document.querySelector(".prev"),
+        nextBtn = document.querySelector(".next");
+
+    // function hideImg(a){
+    //     for(let i=a; i<sliderItems.length; i++){
+    //         sliderItems[i].style.display = "none"
+    //     }
+    // }
+    // //hideImg(1)
+
+    // function showImg(b){
+    //     for(let i=b; i<sliderItems.length; i++){
+    //         sliderItems[i].style.display = "block"
+    //     }
+    // }
+    // nextBtn.addEventListener("click", function(event){
+    //     // for(let i = 0; i<sliderItems.length; i++){
+    //     //     if(){
+                
+    //     //     }
+    //     // }
+
+    //     var currentSlide = 0;
+    //     var z=1
+    //     
+    //     z++
+    // })
+    // let currentSlide = 1
+    // function nextSlide() {
+    //     goToSlide(currentSlide+1);
+    // }
+     
+    // function previousSlide() {
+    //     goToSlide(currentSlide-1);
+    // }
+    sliderItems.forEach(element => {
+        element.style.display = "none"
+    });
+    sliderItems[0].style.display = "block"
+    
+    
+    let currentSlide = 0
+
+    function slider(n){
+        sliderItems.forEach(e => {
+            e.style.display = "none"
+        });
+        sliderItems[n].style.display = "block"
+    }
+
+    nextBtn.addEventListener("click", ()=>{    
+        if (currentSlide+1 == sliderItems.length){
+            currentSlide = -1; 
+        }
+        ++currentSlide
+        slider(currentSlide) 
+    });
+    
+    prevBtn.addEventListener("click", ()=>{
+        currentSlide--
+        if(currentSlide <0){
+            currentSlide = (sliderItems.length - 1)
+        }
+        slider(currentSlide)     
+    })
+    
+        
+    // function slider(){
+    //     for(let i=0; i<sliderItems.length; i++){
+    //         sliderItems[i].style.display = "none";
+    //     }
+    //     sliderItems[currentSlide].style.display = "block";
+    //     currentSlide++
+
+    // }
+    // nextBtn.addEventListener("click", ()=>{
+    //     slider()
+    //     if (currentSlide == sliderItems.length){
+    //         currentSlide = 0;
+    //     }
+    // });
+
+    // prevBtn.addEventListener("click", ()=>{
+    //     if(currentSlide == currentSlide%sliderItems.length){
+    //         currentSlide = (currentSlide%sliderItems.length)-1
+    //         console.log(currentSlide)
+    //     }
+    //     slider()
+
+  //})
+//     function slider(n) {
+//         let currentSlide = n;
+//         sliderItems[currentSlide].style.display = 'block';
+//         currentSlide = (currentSlide+1)%sliderItems.length;
+//         sliderItems[currentSlide].style.display = 'none';
+
+//     }
+
 
 });
