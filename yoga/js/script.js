@@ -84,8 +84,9 @@ window.addEventListener("DOMContentLoaded", function () {
         
     function closeModal (){
         overlay.style.display = "none";
-        more.classList.remove("more-splash")
-        document.body.style.overflow = "";   
+        more.classList.remove("more-splash");
+        document.body.style.overflow = ""; 
+        form.removeChild(statusDiv);  
     };
 
     btnsMore.forEach(function(elem){
@@ -149,60 +150,115 @@ window.addEventListener("DOMContentLoaded", function () {
     // // TIMER END
 
     // // FORM START
-    let message = {
-        loading: "Загрузка...",
-        success: "Спасибо! Скоро мы с вами свяжемся!",
-        failture: "Что-то пошло не так..."
-    };
+    // let message = {
+    //     loading: "Загрузка...",
+    //     success: "Спасибо! Скоро мы с вами свяжемся!",
+    //     failture: "Что-то пошло не так..."
+    // };
 
+    // let form = document.querySelector(".main-form"),
+    //     input = form.getElementsByTagName("input"),
+    //     statusMessage = document.createElement("div");
+
+    // statusMessage.classList.add("status");
+
+    // form.addEventListener("submit", (event)=>{
+    //     event.preventDefault();
+    //     form.appendChild(statusMessage);
+
+    //     let request = new XMLHttpRequest();
+    //     request.open("POST", "server.php");
+    //     //below 2 lines with settings for classic php server
+    //     //request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    //     //request.send(formData);
+
+    //     //below lines with settings for node js server, where need send json data
+    //     request.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+    //     let formData = new FormData(form);
+        
+    //     let obj = {};
+    //     formData.forEach(function(value,key){
+    //         obj[key] = value;
+    //     });
+    //     let json = JSON.stringify(obj);
+    //     request.send(json);
+
+    //     //after press submit 
+    //     request.addEventListener("readystatechange", ()=>{
+    //         if(request.readyState <4){
+    //             statusMessage.innerHTML = message.loading;
+    //         }else if(request.readyState === 4 && request.status == 200){
+    //             // form.innerHTML = "";
+    //             // form.appendChild(statusMessage);
+    //             statusMessage.innerHTML = message.success;
+    //         }else{
+    //             statusMessage.innerHTML = message.failture;
+    //         }
+    //     })
+    //     //clear inputs after sending form data
+    //     for(let i=0; i<input.length; i++){
+    //         input[i].value = "";
+    //     }
+    // });
+    // // FORM END
+
+
+    // FORM PROMISES START
+    let message = {
+        load: "Загрузка...",
+        success: "Спасибо! В ближайщее время мы с вами свяжемся!",
+        fail: "Что-то пошло не так..",
+    };
     let form = document.querySelector(".main-form"),
         input = form.getElementsByTagName("input"),
-        statusMessage = document.createElement("div");
+        statusDiv = document.createElement("div");
 
-    statusMessage.classList.add("status");
+    function sendRequest(method ,url, data=null){
+        return new Promise((resolve, reject)=>{
+            let xhr = new XMLHttpRequest();
+            xhr.open(method, url);
+            xhr.responseType = "json";
+            xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
 
-    form.addEventListener("submit", (event)=>{
-        event.preventDefault();
-        form.appendChild(statusMessage);
+            xhr.onload = () => {
+                if(xhr.status == 200){
+                    resolve(xhr.response)
+                }else{
+                    reject(Error(xhr.statusText))
+                }
+            };
+            xhr.onerror = () => reject(Error("Network Error"));
 
-        let request = new XMLHttpRequest();
-        request.open("POST", "server.php");
+            xhr.send(data)
+        })
+    }
 
-        //below 2 lines with settings for classic php server
-        //request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        //request.send(formData);
-
-
-        //below lines with settings for node js server, where need send json data
-        request.setRequestHeader("Content-Type", "application/json; charset=utf-8");
-        let formData = new FormData(form);
-        
+    function makeBodyData(){
+        let data = new FormData(form)
         let obj = {};
-        formData.forEach(function(value,key){
+
+        data.forEach(function(value,key){
             obj[key] = value;
         });
-        let json = JSON.stringify(obj);
+        let jsonData = JSON.stringify(obj);
+        return jsonData;
+    };
 
-        request.send(json);
+    form.addEventListener("submit", (e)=>{
+        e.preventDefault();
+        form.appendChild(statusDiv);
 
-        //after press submit 
-        request.addEventListener("readystatechange", ()=>{
-            if(request.readyState <4){
-                statusMessage.innerHTML = message.loading;
-            }else if(request.readyState === 4 && request.status == 200){
-                // form.innerHTML = "";
-                // form.appendChild(statusMessage);
-                statusMessage.innerHTML = message.success;
-            }else{
-                statusMessage.innerHTML = message.failture;
-            }
-        })
-
-        //clear inputs after sending form data
-        for(let i=0; i<input.length; i++){
-            input[i].value = "";
-        }
-
+        sendRequest("POST", "server.php", makeBodyData())
+            .then( () => {
+                statusDiv.innerHTML = message.success
+            }, () => {
+                statusDiv.innerHTML = message.fail
+            });
+            for(let i = 0; i<input.length; i++){
+                input[i].value ="";
+            };
     });
-    // // FORM END
+    // FORM PROMISES END
+
+
 });
