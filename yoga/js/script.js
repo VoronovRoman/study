@@ -261,104 +261,115 @@ window.addEventListener("DOMContentLoaded", function () {
     // FORM PROMISES END
 
     //SLIDER START
+    // let sliderItems = document.querySelectorAll(".slider-item"),
+    //     prevBtn = document.querySelector(".prev"),
+    //     nextBtn = document.querySelector(".next"),
+    //     currentSlide = 0,
+    //     dots = document.querySelectorAll(".slider-dots .dot");
+
+    // sliderItems.forEach(element => {
+    //     element.style.display = "none"
+    // });
+    // sliderItems[0].style.display = "block"
+    
+    // //main slide func
+    // function slider(n){
+    //     sliderItems.forEach(e => {
+    //         e.style.display = "none"
+    //     });
+    //     sliderItems[n].style.display = "block"
+    // }
+    // //next slide
+    // nextBtn.addEventListener("click", ()=>{    
+    //     currentSlide++
+    //     if (currentSlide == sliderItems.length){
+    //         currentSlide = 0; 
+    //     };
+    //     slider(currentSlide)
+    //     sliderDots()
+    // });
+    // //prev slide
+    // prevBtn.addEventListener("click", ()=>{
+    //     currentSlide--
+    //     if(currentSlide <0){
+    //         currentSlide = (sliderItems.length - 1)
+    //     };
+    //     slider(currentSlide) 
+    //     sliderDots()    
+    // })
+
+    // //change dots when slide
+    // function sliderDots(){
+    //     removeDots()
+    //     dots[currentSlide].classList.add("dot-active")
+    // };
+    // //change slide when click on dots
+    // function removeDots(){
+    //     dots.forEach(element => { 
+    //         element.classList.remove("dot-active")
+    //     });
+    // }
+    
+    // function findCurrentDotNum(){
+    //     for(let i=0; i<dots.length;i++){
+    //         if(dots[i].className.includes("dot-active")){
+    //             return i
+    //         };
+    //     };
+    // };
+    // //click on dots and change slide
+    // dots.forEach(element => { 
+    //     element.addEventListener("click", ()=>{
+    //         removeDots()
+    //         element.classList.add("dot-active")
+    //         currentSlide = findCurrentDotNum()
+    //         slider(currentSlide)
+    //     })
+    // });
+    //SLIDER END
+
+    //SLIDER FROM GUIDE START
     let sliderItems = document.querySelectorAll(".slider-item"),
         prevBtn = document.querySelector(".prev"),
-        nextBtn = document.querySelector(".next");
+        nextBtn = document.querySelector(".next"),
+        currentSlide = 0,
+        dots = document.querySelectorAll(".slider-dots .dot"),
+        dotsWrap = document.querySelector(".slider .slider-dots");
 
-    // function hideImg(a){
-    //     for(let i=a; i<sliderItems.length; i++){
-    //         sliderItems[i].style.display = "none"
-    //     }
-    // }
-    // //hideImg(1)
-
-    // function showImg(b){
-    //     for(let i=b; i<sliderItems.length; i++){
-    //         sliderItems[i].style.display = "block"
-    //     }
-    // }
-    // nextBtn.addEventListener("click", function(event){
-    //     // for(let i = 0; i<sliderItems.length; i++){
-    //     //     if(){
-                
-    //     //     }
-    //     // }
-
-    //     var currentSlide = 0;
-    //     var z=1
-    //     
-    //     z++
-    // })
-    // let currentSlide = 1
-    // function nextSlide() {
-    //     goToSlide(currentSlide+1);
-    // }
-     
-    // function previousSlide() {
-    //     goToSlide(currentSlide-1);
-    // }
-    sliderItems.forEach(element => {
-        element.style.display = "none"
-    });
-    sliderItems[0].style.display = "block"
-    
-    
-    let currentSlide = 0
-
-    function slider(n){
-        sliderItems.forEach(e => {
-            e.style.display = "none"
-        });
-        sliderItems[n].style.display = "block"
+    showSlide(currentSlide)
+    function showSlide(n){
+        if(n>sliderItems.length-1){
+            currentSlide=0
+        };
+        if(n<0){
+            currentSlide=sliderItems.length-1
+        };
+        sliderItems.forEach(elem => elem.style.display = "none");
+        dots.forEach((elem)=> elem.classList.remove("dot-active"));
+        
+        sliderItems[currentSlide].style.display="block"
+        dots[currentSlide].classList.add("dot-active")
     }
 
-    nextBtn.addEventListener("click", ()=>{    
-        if (currentSlide+1 == sliderItems.length){
-            currentSlide = -1; 
-        }
-        ++currentSlide
-        slider(currentSlide) 
+    function plusSlide(n){
+        showSlide(currentSlide+=n);
+    }
+    function currSl(n){
+        showSlide(currentSlide=n)
+    }
+    prevBtn.addEventListener("click", ()=>{
+        plusSlide(-1)
+    })
+    nextBtn.addEventListener("click", ()=>{
+        plusSlide(1)
     });
     
-    prevBtn.addEventListener("click", ()=>{
-        currentSlide--
-        if(currentSlide <0){
-            currentSlide = (sliderItems.length - 1)
+    dotsWrap.addEventListener("click", (event)=>{
+        for(let i=0; i<dots.length; i++){
+            if(event.target.classList.contains("dot") && event.target == dots[i]){
+                currSl(i)
+            }
         }
-        slider(currentSlide)     
-    })
-    
-        
-    // function slider(){
-    //     for(let i=0; i<sliderItems.length; i++){
-    //         sliderItems[i].style.display = "none";
-    //     }
-    //     sliderItems[currentSlide].style.display = "block";
-    //     currentSlide++
-
-    // }
-    // nextBtn.addEventListener("click", ()=>{
-    //     slider()
-    //     if (currentSlide == sliderItems.length){
-    //         currentSlide = 0;
-    //     }
-    // });
-
-    // prevBtn.addEventListener("click", ()=>{
-    //     if(currentSlide == currentSlide%sliderItems.length){
-    //         currentSlide = (currentSlide%sliderItems.length)-1
-    //         console.log(currentSlide)
-    //     }
-    //     slider()
-
-  //})
-//     function slider(n) {
-//         let currentSlide = n;
-//         sliderItems[currentSlide].style.display = 'block';
-//         currentSlide = (currentSlide+1)%sliderItems.length;
-//         sliderItems[currentSlide].style.display = 'none';
-
-//     }
-
-
+    });
+    //SLIDER FROM GUIDE END
 });
