@@ -382,7 +382,7 @@ window.addEventListener("DOMContentLoaded", function () {
     total.innerHTML= "0"
     counterInputs.forEach((elem)=>{
         elem.addEventListener("input", (event)=>{
-            if(counterInputs[0].value == "" || counterInputs[1].value == ""){
+            if((counterInputs[0].value && counterInputs[1].value) == ""){
                 total.innerHTML = "0"
             }else{
                 sum = (+counterInputs[0].value + (+counterInputs[1].value))*100

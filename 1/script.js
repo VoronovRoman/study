@@ -922,38 +922,85 @@
 // }
 
 //CALLBACK HEEELLL EXAMPLE
-let drink = 0;
-function shoot(arrow, headshot, fail){
-    console.log("You make a shoot..")
-    setTimeout(function(){
-        Math.random()>.5 ? headshot({}): fail("Miss");
-    }, 3000)
-}
-function win(){
-    console.log("You win");
-    (drink == 1) ? buyBeer(): giveMoney();
-}
-function buyBeer(){
-    console.log("Here's beer for You")
-}
-function giveMoney(){
-    console.log("Take money, bro")
-}
+// let drink = 0;
+// function shoot(arrow, headshot, fail){
+//     console.log("You make a shoot..")
+//     setTimeout(function(){
+//         Math.random()>.5 ? headshot({}): fail("Miss");
+//     }, 3000)
+// }
+// function win(){
+//     console.log("You win");
+//     (drink == 1) ? buyBeer(): giveMoney();
+// }
+// function buyBeer(){
+//     console.log("Here's beer for You")
+// }
+// function giveMoney(){
+//     console.log("Take money, bro")
+// }
 
-function loose(){
-    console.log("You loose")
-}
+// function loose(){
+//     console.log("You loose")
+// }
 
-shoot({}, 
-        function(mark){
-            console.log("HeadSHOT!");
-            win(mark, buyBeer, giveMoney)
-        },
-        function(miss){
-            console.error(miss);
-            loose()
-        }
-    );
-
-
+// shoot({}, 
+//         function(mark){
+//             console.log("HeadSHOT!");
+//             win(mark, buyBeer, giveMoney)
+//         },
+//         function(miss){
+//             console.error(miss);
+//             loose()
+//         }
+//     );
 //********************************************PROMISE END
+
+//*************************************LOCALSTORAGE START
+// localStorage.setItem("number", 1)
+
+// console.log(localStorage.getItem("number"))
+
+// localStorage.removeItem("number")
+// console.log(localStorage.getItem("number"))
+
+// localStorage.clear(); 
+//*************************************LOCALSTORAGE END
+
+
+//*************************************TRY/CATCH START
+// try{
+//     console.log("Start work")
+//     console.log(a)
+//     console.log("Result")
+// } catch(error){
+//     console.log(error)
+//     console.log(error.name)
+//     console.log(error.message)
+//     console.log(error.stack)
+//     console.log(`We have a error: ${error.name}`)
+// }
+// console.log("still work")
+
+
+// let json = '{"id":2}'
+
+// try{
+//     let user = JSON.parse(json) //json to data
+//     //console.log(user)
+    
+//     if(!user.name){
+//         throw new Error("there is no name in this data")
+//     }
+// } catch(error){
+//     //console.log(error)
+//     //console.log(error.name)
+//     //console.log(error.message)
+//     //console.log(error.stack)
+//     console.log(`We have a error: ${error.message}`)
+// } finally {
+//     //console.log("I'm will be work always")
+// }
+//console.log("still work")
+//*************************************TRY/CATCH END
+
