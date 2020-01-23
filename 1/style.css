@@ -56,7 +56,26 @@ button{
 
 }
 button {
-    display: block;
+    display: inline-block;
     margin: 0 auto;
 }
 /* END PARAM WINDOW JS */
+
+/* START JQUERY JS */
+.wrapper,
+.list{
+    text-align: center;
+    margin-top: 50px;
+}
+.active{
+    background-color: aqua;
+    width: 100px;
+    height: 50px;
+
+}
+img{
+    width: 200px;
+    height: 170px;
+    text-align: center;
+}
+/* END JQUERY JS */
